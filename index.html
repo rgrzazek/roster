@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Roster tool - Robert Grzazek</title>
+  <meta name="description" content="Calendar for mine rosters">
+  <meta name="keywords" content="roster, mining roster">
+  <meta name="author" content="Robert Grzazek">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/drawCalendar.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+
+    <div class="column" id="column">
+
+      <header>
+        <h1>Rostering calendar</h1>
+      </header>
+
+      <section>
+        <p>
+
+        </p>
+      </section>
+      
+      <section id="calendar">
+          <table>
+            <thead>
+              <tr>
+                <td colspan=7>
+                  <text id="monthAndYear"></text>
+                
+                </td>
+              </tr>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+            <tbody id= "grid">
+              <!-- Calendar will go here -->
+            </tbody>
+            <tbody id= "calendarNav">
+            <tr>
+              <td colspan=7>
+                <text class = "dayshift">Day shift</text><br>
+                <text class = "nightshift">Night shift</text><br>
+                <button id="previous" onclick="previousMonth()">Previous month</button>
+                <button id="change" onclick="changeRoster()">Different roster (+5 days)</button>
+                <button id="next" onclick="nextMonth()">Next month</button>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+
+
+      </section>
+
+
+
+
+    </div>
+
+  </div>
+
+  <footer>
+    Created by <strong>Robert Grzazek.</strong>
+  </footer>
+
+</body>
+
+</html>
