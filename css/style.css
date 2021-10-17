@@ -4,7 +4,7 @@
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-style: normal;
-  line-height: 1.5;
+  line-height: 1.2;
   font-size: 16px;
 }
 
@@ -13,8 +13,8 @@ body {
 }
 
 #calendar p {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 #calendar #monthAndYear {
@@ -36,7 +36,6 @@ body {
 #calendar td,
 #calendar th {
   width: 14%;
-  /*  height: 2em;*/
   border: solid 1px black;
   vertical-align: middle;
 }
@@ -64,7 +63,7 @@ h1 {
   text-align: center;
   font-weight: bold;
   color: darkslategrey;
-  padding: 0.1em;
+  margin-bottom: -0.5em;
 }
 
 /**********************/
@@ -95,7 +94,7 @@ h1 {
 #column {
   background: cornsilk;
   /* Create white-space and room for footer */
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
   /* Span all the way to the footer */
   min-height: 100%;
 }

@@ -134,7 +134,7 @@ function calendarHTML() {
     for (let i=0; i<6; i++) {
       calendar += '<tr id="week'+i+'">';
       for (let j=0; j<7; j++) {
-        calendar += '<td id="'+daysOfWeek[j]+'"></td>'
+        calendar += '<td id="'+daysOfWeek[j]+'">&nbsp</td>'
       }
       calendar += "</tr>";
     }
