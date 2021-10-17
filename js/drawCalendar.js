@@ -101,7 +101,7 @@ function drawDays() {
   for (let i=0; i<daysInMonth; i++) {
     let week = Math.trunc((i+dayOfFirst)/7);
     let day = (i+dayOfFirst)%7;
-    $("#week"+week+" #"+daysOfWeek[day]).html(i+1);
+    $("#week"+week+" #"+daysOfWeek[day]).html( i+1 );
 
   }
 }

@@ -7,36 +7,42 @@ body {
   line-height: 1.5;
   font-size: 16px;
 }
-#calendar button {
-  font-size: large;
-  vertical-align: middle;
-  width: 32%;
+
+#calendar {
+  font-size: 1.5em;
 }
 
-#calendar table {
-  margin: 7em auto 7em auto;
-  width: 85%;
-  border: solid 1px black;
-  text-align: center;
-}
-
-#calendar td {
-  width: 14%;
-  height: 2em;
-  border: solid 1px #0064bb;
-  vertical-align: middle;
-  font-size: x-large;
-}
-#calendar th {
-  width: 14%;
-  height: 5em;
-  border: solid 1px #0064bb;
-  vertical-align: middle;
+#calendar p {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 #calendar #monthAndYear {
-  font-size: xx-large;
-  width: 50%;
+  font-weight: bold;
+}
+
+#calendar button {
+  font-size: large;
+  vertical-align: middle;
+  width: 33%;
+}
+
+#calendar table {
+  margin: 1em auto 1em auto;
+  width: 85%;
+  text-align: center;
+}
+
+#calendar td,
+#calendar th {
+  width: 14%;
+  /*  height: 2em;*/
+  border: solid 1px black;
+  vertical-align: middle;
+}
+
+#calendar #calendarNav td {
+  border: 0px;
 }
 
 #calendar .dayshift {
@@ -45,10 +51,6 @@ body {
 
 #calendar .nightshift {
   background-color: #9999dd;
-}
-
-p {
-  margin-bottom: 1rem;
 }
 
 b {
@@ -60,24 +62,9 @@ b {
 h1 {
   font-size: 36px;
   text-align: center;
-  margin-bottom: 1rem;
-}
-h2 {
-  font-size: 30px;
-  text-align: center;
-  border-bottom: 1px solid #d9d9d9;
-  margin-bottom: 1rem;
-}
-h3 {
-  font-size: 24px;
-}
-
-h1,
-h2,
-h3 {
   font-weight: bold;
   color: darkslategrey;
-  padding-top: 20px;
+  padding: 0.1em;
 }
 
 /**********************/

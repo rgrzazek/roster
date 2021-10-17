@@ -23,7 +23,7 @@
     <div class="column" id="column">
 
       <header>
-        <h1>Rostering calendar</h1>
+        <h1>Roster calendar</h1>
       </header>
 
       <section>
@@ -37,7 +37,7 @@
             <thead>
               <tr>
                 <td colspan=7>
-                  <text id="monthAndYear"></text>
+                  <span id="monthAndYear"></span>
                 
                 </td>
               </tr>
@@ -55,15 +55,20 @@
               <!-- Calendar will go here -->
             </tbody>
             <tbody id= "calendarNav">
-            <tr>
+              <tr>
               <td colspan=7>
-                <text class = "dayshift">Day shift</text><br>
-                <text class = "nightshift">Night shift</text><br>
+              <p>
                 <button id="previous" onclick="previousMonth()">Previous month</button>
                 <button id="change" onclick="changeRoster()">Different roster (+5 days)</button>
                 <button id="next" onclick="nextMonth()">Next month</button>
+              </p>
 
               </td>
+            </tr>
+            <tr>
+              <td></td></td><td colspan=2 class="dayshift">Day shift</td>
+              <td></td>
+              <td colspan=2 class="nightshift">Night shift</td><td></td>
             </tr>
           </tbody>
         </table>
