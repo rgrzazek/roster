@@ -9,13 +9,14 @@ const APR = 3;  const MAY = 4;  const JUN = 5;
 const JUL = 6;  const AUG = 7;  const SEP = 8;
 const OCT = 9;  const NOV = 10; const DEC = 11;
 
-// Hard coded for now.
-// To do: Create tools to apply custom roster
+// Hard coded roster dates. Can be any date that coincides
+// with the roster, these dates are not special.
 let allStartDates = [
-  new Date(2021, JAN, 8),
-  new Date(2021, JAN, 13),
-  new Date(2021, JAN, 18),
-  new Date(2021, JAN, 3)];
+  new Date(2021, OCT, 11),
+  new Date(2021, OCT, 16),
+  new Date(2021, OCT, 21),
+  new Date(2021, OCT, 26)];
+let crew = ["A crew", "B crew", "C crew", "D crew"];
 let rosterIndex = 0;
 
 function changeRoster() {
@@ -23,10 +24,12 @@ function changeRoster() {
   newCalendar();
 }
 
-let date = new Date();
-date.setDate(1); //1st of this month
-let month = date.getMonth();
-let year = date.getFullYear();
+// default month and year to match today's date
+let startOfMonth = new Date();
+startOfMonth.setDate(1);
+let month = startOfMonth.getMonth();
+let year = startOfMonth.getFullYear();
+let startOfNext = new Date(year, month+1);
 
 
 // Put all the html into the webpage
@@ -44,47 +47,49 @@ function applyRoster() {
   roster = [5, 5, 10];
   rosterLength = 20;
 
+  $("#calendar #crew").html(crew[rosterIndex]);
+
   let ptr = allStartDates[rosterIndex];
-  // all: 3-1-21, 8-1-21, 13-1-21, 18-1-21
   let next = new Date(ptr.getFullYear(), ptr.getMonth(), ptr.getDate()+rosterLength);
-  
-  while (next<date) {
+
+  // walk back: start at or before this calendar month
+  while (ptr>startOfMonth) {
+    ptr = new Date(ptr.getFullYear(), ptr.getMonth(), ptr.getDate()-rosterLength);
+  }
+  // walk forward: start a period that covers the first of this month
+  while (next<startOfMonth) {
     ptr = next;
     next = new Date(ptr.getFullYear(), ptr.getMonth(), ptr.getDate()+rosterLength);
-    console.log(next+"\n"+date);
   }
 
-  // fix this. Calculates too much, only applies to this month
-  for (let i=0; i<4; i++) {
-    // hard-coded 5 days, 5 nights, 10 off
-
+  // Calculate whole cycles, repeat until cycle passes end of month
+  // rely on fact that adding days will auto-change month
+  while (ptr<startOfNext) {
+    // 5 days
     for (let day=0; day<5; day++) {
       if (ptr.getMonth()===month) {
         getDateRef(ptr.getDate()).addClass("dayshift");
       }
       ptr.setDate(ptr.getDate()+1);
     }
+    // 5 nights
     for (let day=0; day<5; day++) {
       if (ptr.getMonth()===month) {
         getDateRef(ptr.getDate()).addClass("nightshift");
       }
       ptr.setDate(ptr.getDate()+1);
     }
+    // 10 days off
     ptr.setDate(ptr.getDate()+10);
   }
 
 }
 
 
-
-/*******************************************************/
-/*********** The bones of the calendar below ***********/
-/*******************************************************/
-
 function getDateRef(date) {
-  date--; // array index
+  date--; // look for 0-based array index
   let dayOfFirst = (new Date(year, month)).getDay();;
-  let daysInMonth = 32 - new Date(year, month, 32).getDate();
+//  let daysInMonth = 32 - new Date(year, month, 32).getDate();
 
   let week = Math.trunc((date+dayOfFirst)/7);
   let day = (date+dayOfFirst)%7;
@@ -113,7 +118,8 @@ function previousMonth() {
   } else {
     month--;
   }
-  date = new Date(year, month);
+  startOfMonth = new Date(year, month);
+  startOfNext = new Date(year, month+1);
   newCalendar();
 }
 
@@ -124,13 +130,16 @@ function nextMonth() {
   } else {
     month++;
   }
-  date = new Date(year, month);
+  startOfMonth = new Date(year, month);
+  startOfNext = new Date(year, month+1);
   newCalendar();
 }
 
 function calendarHTML() {
   let calendar = '';
 
+    // for example, Wednesday the 6th, in the second calendar week:
+    // cells will have row id: "week2" and cell id "Wed" 
     for (let i=0; i<6; i++) {
       calendar += '<tr id="week'+i+'">';
       for (let j=0; j<7; j++) {

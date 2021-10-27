@@ -2,6 +2,7 @@
 /* Default styling */
 
 body {
+  background-color: cornsilk;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-style: normal;
   line-height: 1.2;
@@ -52,6 +53,11 @@ body {
   background-color: #9999dd;
 }
 
+#calendar #crew {
+  font-weight: bold;
+  font-size: larger;
+}
+
 b {
   font-weight: bold;
 }
@@ -89,10 +95,10 @@ h1 {
     #ff4f00,
     #ff4f00
   );
+
 */
 
 #column {
-  background: cornsilk;
   /* Create white-space and room for footer */
   padding-bottom: 1rem;
   /* Span all the way to the footer */
