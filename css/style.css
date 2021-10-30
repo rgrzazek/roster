@@ -30,7 +30,7 @@ body {
 
 #calendar table {
   margin: 1em auto 1em auto;
-  width: 85%;
+  width: 80%;
   text-align: center;
 }
 
@@ -85,24 +85,6 @@ h1 {
   right: 0px;
   left: 0px;
   bottom: 0px;
-}
-/* Kalari colours
-  background: linear-gradient(
-    #ffd900,
-    #ffd900,
-    #ffd900,
-    #ff4f00,
-    #ff4f00,
-    #ff4f00
-  );
-
-*/
-
-#column {
-  /* Create white-space and room for footer */
-  padding-bottom: 1rem;
-  /* Span all the way to the footer */
-  min-height: 100%;
 }
 
 footer {
